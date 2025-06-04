@@ -5,7 +5,7 @@ function login() {
     const user = document.getElementById('username').value;
     const pass = document.getElementById('password').value;
   
-    if (user === 'xinchao' && pass === '123456') {
+    if (user === 'nvkhoa054124' && pass === '0542051124@!') {
       localStorage.setItem('loggedIn', 'true');
       window.location.href = 'home.html';
     } else {

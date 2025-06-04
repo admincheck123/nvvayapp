@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Trang cá nhân</title>
+
+  <!-- Google Fonts: Poppins -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap"
+    rel="stylesheet"
+  />
+
+  <!-- Font Awesome để dùng icon check -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+  />
+
+  <!-- CSS chính -->
+  <link rel="stylesheet" href="profile.css" />
+  <script>
+    if (localStorage.getItem('loggedIn') !== 'true') {
+      window.location.href = 'index.html';
+    }
+  </script>
+</head>
+<body>
+  <!-- ====== Thanh header (menu) ====== -->
+  <header class="header">
+    <div class="header-left">
+      <a href="home.html" class="logo">VayApp</a>
+      <nav class="nav">
+        <a href="home.html">Trang chủ</a>
+        <a href="#" class="active">Hồ sơ</a>
+        <a href="#">Khách hàng</a>
+        <a href="#">Báo cáo</a>
+        <a href="#">Cài đặt</a>
+      </nav>
+    </div>
+    <div class="header-right">
+      <!-- Phần hiển thị số tiền hiện có (có thể tái sử dụng) -->
+      <a href="history.html" style="text-decoration: none" class="balance-display">
+        <i class="fas fa-wallet"></i>
+        <span id="current-balance">0 VNĐ</span>
+      </a>
+
+      <button class="btn-logout" id="btnLogout">Đăng xuất</button>
+      <a href="profile.html" class="avatar-btn">
+        <img src="./img/avatar.avif" alt="Avatar" />
+      </a>
+    </div>
+  </header>
+
+  <!-- ====== Nội dung chính: Profile nhân viên ====== -->
+  <main class="main-content">
+    <h1 class="main-title">Hồ sơ nhân viên</h1>
+
+    <div class="profile-container">
+      <!-- Ảnh nhân viên -->
+      <div class="profile-photo">
+        <img src="./img/khoa.png" alt="Ảnh nhân viên" />
+      </div>
+
+      <!-- Thông tin chi tiết -->
+      <div class="profile-details">
+        <div class="info-item">
+          <label>Họ và tên:</label>
+          <span>Huỳnh Duy Khoa <i class="fas fa-check-circle status-icon green"></i></span>
+        </div>
+        <div class="info-item">
+          <label>Ngày tháng năm sinh:</label>
+          <span>21/10/2005 <i class="fas fa-check-circle status-icon green"></i></span>
+        </div>
+        <div class="info-item">
+          <label>Quê quán:</label>
+          <span>Chưa xác thực <i class="fas fa-check-circle status-icon red"></i></span>
+        </div>
+        <div class="info-item">
+          <label>Công việc hiện tại:</label>
+          <span>Làm việc cho app <i class="fas fa-check-circle status-icon green"></i></span>
+        </div>
+        <div class="info-item">
+            <label>Đã đủ điều kiện làm hay chưa:</label>
+            <span>Chưa đủ điều kiện để làm việc vui lòng xác nhận thêm thông tin <i class="fas fa-check-circle status-icon red"></i></span>
+          </div>
+        <div class="info-item">
+          <label>Đã ký HĐLĐ:</label>
+          <span>Chưa xác thực <i class="fas fa-check-circle status-icon red"></i></span>
+        </div>
+        <div class="info-item">
+          <label>Thường trú:</label>
+          <span>Chưa xác thực <i class="fas fa-check-circle status-icon red"></i></span>
+        </div>
+        <div class="info-item">
+          <label>Chỗ ở hiện tại:</label>
+          <span>Chưa xác thực <i class="fas fa-check-circle status-icon red"></i></span>
+        </div>
+        <div class="info-item">
+          <label>Mã định danh:</label>
+          <span>Chưa xác thực <i class="fas fa-check-circle status-icon red"></i></span>
+        </div>
+        <div class="info-item">
+          <label>Số CCCD:</label>
+          <span>Chưa xác thực <i class="fas fa-check-circle status-icon red"></i></span>
+        </div>
+        <div class="info-item">
+          <label>Gmail:</label>
+          <span>Chưa xác thực <i class="fas fa-check-circle status-icon red"></i></span>
+        </div>
+        <div class="info-item">
+          <label>Số điện thoại:</label>
+          <span>Chưa xác thực <i class="fas fa-check-circle status-icon red"></i></span>
+        </div>
+        <div class="info-item">
+          <label>SDT người thân:</label>
+          <span>Chưa xác thực <i class="fas fa-check-circle status-icon red"></i></span>
+        </div>
+        <div class="info-item">
+          <label>Họ và tên người thân:</label>
+          <span>Chưa xác thực <i class="fas fa-check-circle status-icon red"></i></span>
+        </div>
+        <div class="info-item">
+          <label>Địa chỉ người thân:</label>
+          <span>Chưa xác thực <i class="fas fa-check-circle status-icon red"></i></span>
+        </div>
+        <div class="info-item">
+          <label>Số tài khoản:</label>
+          <span>Chưa xác thực <i class="fas fa-check-circle status-icon red"></i></span>
+        </div>
+        <div class="info-item">
+          <label>Ngân hàng:</label>
+          <span>Chưa xác thực <i class="fas fa-check-circle status-icon red"></i></span>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- ====== Script đăng xuất & logic JS cho trang Profile ====== -->
+  <script src="auth.js"></script>
+  <script src="profile.js"></script>
+</body>
+</html>

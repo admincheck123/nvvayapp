@@ -1,0 +1,41 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Google Fonts: Poppins -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+  <!-- Font Awesome: sử dụng CDN chính thức (chỉ cần href, không thêm integrity) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+  <title>Đăng nhập</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="login-container">
+    <div class="login-logo">
+      <!-- Icon user trung tâm -->
+      <i class="fas fa-user-circle"></i>
+    </div>
+    <h2>Đăng nhập</h2>
+
+    <div class="input-group">
+      <i class="fas fa-user"></i>
+      <input type="text" id="username" placeholder="Tên đăng nhập">
+    </div>
+
+    <div class="input-group">
+      <i class="fas fa-lock"></i>
+      <input type="password" id="password" placeholder="Mật khẩu">
+    </div>
+
+    <button onclick="login()">Đăng nhập</button>
+    <p class="error" id="error"></p>
+  </div>
+
+  <script src="auth.js"></script>
+</body>
+</html>

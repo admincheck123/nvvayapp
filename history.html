@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lịch sử giao dịch</title>
+
+  <!-- Google Fonts: Poppins -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap"
+    rel="stylesheet"
+  />
+
+  <!-- Font Awesome để dùng icon -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+  />
+
+  <!-- CSS riêng cho history -->
+  <link rel="stylesheet" href="history.css" />
+
+  <!-- Kiểm tra login ngay khi load -->
+  <script>
+    if (localStorage.getItem('loggedIn') !== 'true') {
+      window.location.href = 'index.html';
+    }
+  </script>
+</head>
+<body>
+  <!-- ====== Thanh header (menu) ====== -->
+  <header class="header">
+    <div class="header-left">
+      <a href="home.html" class="logo">MyApp</a>
+      <nav class="nav">
+        <a href="home.html">Trang chủ</a>
+        <a href="history.html" class="active">Lịch sử</a>
+        <a href="#">Hồ sơ</a>
+        <a href="#">Khách hàng</a>
+        <a href="#">Báo cáo</a>
+        <a href="#">Cài đặt</a>
+      </nav>
+    </div>
+    <div class="header-right">
+      <!-- Bấm vào sẽ vào history (đang ở chính nó) -->
+      <a href="history.html" style="text-decoration: none" class="balance-display">
+        <i class="fas fa-wallet"></i>
+        <span id="current-balance">0 VNĐ</span>
+      </a>
+
+      <button class="btn-logout" id="btnLogout">Đăng xuất</button>
+      <a href="profile.html" class="avatar-btn">
+        <img src="./img/avatar.avif" alt="Avatar" />
+      </a>
+    </div>
+  </header>
+
+  <!-- ====== Nội dung chính: Lịch sử giao dịch ====== -->
+  <main class="main-content">
+    <h1 class="main-title">Lịch sử giao dịch</h1>
+    <div class="history-container">
+      <table class="history-table">
+        <thead>
+          <tr>
+            <th>Loại</th>
+            <th>Số tiền</th>
+            <th>Lý do</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="type negative">Trừ</td>
+            <td class="amount negative">-10,350,000₫</td>
+            <td class="reason">Nợ Lê Minh Khang</td>
+          </tr>
+          <!-- Tương tự bạn có thể thêm nhiều dòng khác -->
+        </tbody>
+      </table>
+    </div>
+  </main>
+
+  <!-- ====== Script logic cho trang History ====== -->
+  <script src="auth.js"></script>
+  <script src="history.js"></script>
+</body>
+</html>

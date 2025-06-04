@@ -1,0 +1,279 @@
+/* home.css */
+
+/* ----- Biến màu và font ----- */
+:root {
+    --cream-bg: #fffaf0;         /* Nền trắng kem */
+    --primary-color: #764ba2;    /* Màu tím chủ đạo */
+    --primary-hover: #5e3e91;    /* Màu tím tối hơn khi hover */
+    --text-dark: #333333;
+    --text-light: #555555;
+    --card-bg: #ffffff;
+    --badge-bg: #e74c3c;         /* Màu đỏ cho badge “Chưa trả” */
+    --badge-text: #ffffff;
+  }
+  
+  /* Reset cơ bản */
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  html {
+    font-size: 16px;
+  }
+  
+  body {
+    background-color: var(--cream-bg);
+    font-family: 'Poppins', sans-serif;
+    color: var(--text-dark);
+    min-height: 100vh;
+  }
+  
+  /* ====== Header (Thanh menu) ====== */
+  .header {
+    width: 100%;
+    background-color: #ffffff;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.75rem 1.5rem;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+  
+  /* Khung bên trái logo + nav */
+  .header-left {
+    display: flex;
+    align-items: center;
+  }
+  
+  /* Logo/Tên ứng dụng */
+  .logo {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--primary-color);
+    text-decoration: none;
+    margin-right: 2rem;
+    transition: color 0.3s;
+  }
+  
+  .logo:hover {
+    color: var(--primary-hover);
+  }
+  
+  /* Phần nav */
+  .nav {
+    display: flex;
+    gap: 1.5rem;
+  }
+  
+  .nav a {
+    text-decoration: none;
+    color: var(--text-light);
+    font-weight: 500;
+    transition: color 0.3s;
+    position: relative;
+  }
+  
+  .nav a:hover,
+  .nav a.active {
+    color: var(--primary-color);
+  }
+  
+  /* Gạch chân khi active */
+  .nav a.active::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: var(--primary-color);
+    border-radius: 2px;
+  }
+  
+  /* Khung bên phải (ví -> logout -> avatar) */
+  .header-right {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+  
+  /* Phần hiển thị số tiền */
+  .balance-display {
+    display: flex;
+    align-items: center;
+    background-color: #ffffff;
+    border: 1px solid var(--primary-color);
+    border-radius: 0.5rem;
+    padding: 0.4rem 0.75rem;
+    font-weight: 500;
+    color: var(--primary-color);
+    font-size: 0.95rem;
+    transition: background-color 0.3s, color 0.3s;
+  }
+  
+  .balance-display i {
+    margin-right: 0.4rem;
+    font-size: 1.1rem;
+  }
+  
+  .balance-display:hover {
+    background-color: var(--primary-color);
+    color: #ffffff;
+  }
+  
+  .balance-display:hover i {
+    color: #ffffff;
+  }
+  
+  /* Nút đăng xuất */
+  .btn-logout {
+    background-color: transparent;
+    border: 1px solid var(--primary-color);
+    color: var(--primary-color);
+    font-weight: 500;
+    padding: 0.4rem 0.8rem;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+  }
+  
+  .btn-logout:hover {
+    background-color: var(--primary-color);
+    color: #ffffff;
+  }
+  
+  /* Avatar trong header */
+  .avatar-btn img {
+    width: 50px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 0.5rem;
+    transition: transform 0.3s;
+  }
+  
+  .avatar-btn img:hover {
+    transform: scale(1.05);
+  }
+  
+  /* ====== Main content ====== */
+  .main-content {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+  }
+  
+  .main-title {
+    font-size: 1.75rem;
+    margin-bottom: 1.5rem;
+    color: var(--text-dark);
+  }
+  
+  /* Container chứa các card */
+  .cards-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 1.5rem;
+  }
+  
+  /* ====== Card thông tin người dùng ====== */
+  /* Mặc định mỗi card ẩn và dời nhẹ xuống dưới (chờ JS thêm class “visible”) */
+  .user-card {
+    background-color: var(--card-bg);
+    border-radius: 0.75rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+  }
+  
+  .user-card.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  .user-card:hover {
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+  }
+  
+  /* Khung avatar (hình chữ nhật) */
+  .avatar-wrapper {
+    position: relative;
+    width: 100%;
+    height: 0;
+    padding-top: 125%; /* Tỉ lệ 4:5 */
+    overflow: hidden;
+    background-color: #f0f0f0;
+  }
+  
+  .avatar-wrapper img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: auto;
+    transform: translate(-50%, -50%);
+  }
+  
+  /* Badge “Chưa trả” ở góc phải trên */
+  .badge-unpaid {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    background-color: var(--badge-bg);
+    color: var(--badge-text);
+    font-size: 0.8rem;
+    font-weight: 600;
+    padding: 0.25rem 0.6rem;
+    border-radius: 0.3rem;
+    text-transform: uppercase;
+  }
+  
+  /* Phần thông tin bên dưới avatar */
+  .user-info {
+    padding: 1rem;
+    text-align: left;
+    color: var(--text-light);
+    font-size: 0.95rem;
+  }
+  
+  .user-info p {
+    margin-bottom: 0.5rem;
+    line-height: 1.4;
+  }
+  
+  .user-info p strong {
+    color: var(--text-dark);
+  }
+  
+  /* ====== Responsive ====== */
+  @media (max-width: 480px) {
+    .user-info {
+      padding: 0.8rem;
+      font-size: 0.9rem;
+    }
+  
+    .main-title {
+      font-size: 1.5rem;
+    }
+  
+    .header {
+      flex-wrap: wrap;
+      gap: 0.75rem;
+    }
+  
+    .nav {
+      gap: 1rem;
+    }
+  
+    .balance-display {
+      padding: 0.3rem 0.6rem;
+      font-size: 0.9rem;
+    }
+  }
+  

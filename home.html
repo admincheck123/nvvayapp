@@ -48,96 +48,12 @@
   </header>
 
   <!-- ====== Nội dung chính ====== -->
-  <main class="main-content">
-    <h1 class="main-title">Danh sách người dùng</h1>
-    <div class="cards-container">
-      <!-- Card 1 -->
-      <div class="user-card">
-        <div class="avatar-wrapper">
-          <img
-            src="./img/anh1.jpg"
-            alt="Avatar người dùng"
-          />
-          <span class="badge-unpaid">Chưa trả</span>
-        </div>
-        <div class="user-info">
-          <p><strong>Tên:</strong> Nguyễn Văn A</p>
-          <p><strong>Số điện thoại:</strong> 0123 456 789</p>
-          <p><strong>Số tiền mượn:</strong> 5.000.000₫</p>
-          <p><strong>Ngày sinh:</strong> 15/04/1990</p>
-        </div>
-      </div>
-
-      <!-- Card 2 -->
-      <div class="user-card">
-        <div class="avatar-wrapper">
-          <img
-            src="./img/anh2.jpg"
-            alt="Avatar người dùng"
-          />
-          <span class="badge-unpaid">Chưa trả</span>
-        </div>
-        <div class="user-info">
-          <p><strong>Tên:</strong> Trần Thị B</p>
-          <p><strong>Số điện thoại:</strong> 0987 654 321</p>
-          <p><strong>Số tiền mượn:</strong> 2.500.000₫</p>
-          <p><strong>Ngày sinh:</strong> 22/09/1985</p>
-        </div>
-      </div>
-
-      <!-- Card 3 -->
-      <div class="user-card">
-        <div class="avatar-wrapper">
-          <img
-            src="./img/anh3.jpg"
-            alt="Avatar người dùng"
-          />
-          <span class="badge-unpaid">Chưa trả</span>
-        </div>
-        <div class="user-info">
-          <p><strong>Tên:</strong> Lê Văn C</p>
-          <p><strong>Số điện thoại:</strong> 0912 345 678</p>
-          <p><strong>Số tiền mượn:</strong> 7.200.000₫</p>
-          <p><strong>Ngày sinh:</strong> 30/12/1992</p>
-        </div>
-      </div>
-
-      <!-- Card 4 -->
-      <div class="user-card">
-        <div class="avatar-wrapper">
-          <img
-            src="./img/anh4.webp"
-            alt="Avatar người dùng"
-          />
-          <span class="badge-unpaid">Chưa trả</span>
-        </div>
-        <div class="user-info">
-          <p><strong>Tên:</strong> Phạm Thị D</p>
-          <p><strong>Số điện thoại:</strong> 0909 876 543</p>
-          <p><strong>Số tiền mượn:</strong> 3.100.000₫</p>
-          <p><strong>Ngày sinh:</strong> 05/02/1995</p>
-        </div>
-      </div>
-
-      <!-- Card 5 -->
-      <div class="user-card">
-        <div class="avatar-wrapper">
-          <img
-            src="./img/khoa.png"
-            alt="Avatar người dùng"
-          />
-          <span class="badge-unpaid">Chưa trả</span>
-        </div>
-        <div class="user-info">
-          <p><strong>Tên:</strong> Đỗ Văn E</p>
-          <p><strong>Số điện thoại:</strong> 0933 221 100</p>
-          <p><strong>Số tiền mượn:</strong> 4.500.000₫</p>
-          <p><strong>Ngày sinh:</strong> 18/07/1988</p>
-        </div>
-      </div>
+  <section class="loading-section">
+    <div class="loading-container">
+      <h1>Vui lòng chờ...</h1>
+      <i class="fas fa-cog loading-icon"></i>
     </div>
-  </main>
-
+  </section>
   <!-- ====== Script đăng xuất & logic JS cho trang Home ====== -->
   <!-- 1) Gọi auth.js trước, để có hàm requireLogin() và logout() -->
   <script src="auth.js"></script>

@@ -14,7 +14,7 @@ function formatNumberWithCommas(x) {
    * Ở đây tạm hardcode thành 10000, có thể thay bằng fetch API nếu cần.
    */
   function getCurrentBalance() {
-    return -10250000;
+    return 0;
   }
   
   /**

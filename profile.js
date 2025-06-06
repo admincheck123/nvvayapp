@@ -29,7 +29,7 @@ function formatNumberWithCommas(x) {
     // 1) Hiển thị số tiền hiện tại (nếu muốn giống Home)
     const balanceSpan = document.getElementById("current-balance");
     if (balanceSpan) {
-      const rawBalance = -10250000;
+      const rawBalance = 0;
       const formatted = formatNumberWithCommas(rawBalance) + " VNĐ";
       balanceSpan.innerText = formatted;
     }

@@ -276,4 +276,35 @@
       font-size: 0.9rem;
     }
   }
-  
+
+  .loading-section {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+  }
+
+  .loading-container {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    text-align: center;
+    flex-wrap: wrap;
+  }
+
+  .loading-container h1 {
+    font-size: clamp(1.5rem, 3vw, 2.5rem);
+    color: #333;
+  }
+
+  .loading-icon {
+    font-size: clamp(1.5rem, 4vw, 3rem);
+    color: #007bff;
+    animation: spin 1s linear infinite;
+  }
+
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }

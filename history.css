@@ -10,7 +10,9 @@
     --table-header-bg: #f5f5f5;
     --border-color: #e0e0e0;
     --negative-color: #e74c3c; /* đỏ */
-    --positive-color: #2ecc71; /* xanh (nếu cần) */
+    --positive-color: #2ecc71; /* xanh */
+    --income-light: rgba(46, 204, 113, 0.1);
+    --expense-light: rgba(231, 76, 60, 0.1);
   }
   
   /* Reset cơ bản */
@@ -170,10 +172,41 @@
     padding: 0 1rem;
   }
   
+  .history-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-bottom: 1.25rem;
+  }
+  
   .main-title {
     font-size: 1.5rem;         /* Giảm font-size */
-    margin-bottom: 1.25rem;
     color: var(--text-dark);
+  }
+  
+  .filter-tabs {
+    display: flex;
+    gap: 0.5rem;
+    background: #f0f0f0;
+    border-radius: 50px;
+    padding: 4px;
+  }
+  
+  .filter-tab {
+    padding: 0.5rem 1rem;
+    border: none;
+    background: transparent;
+    border-radius: 50px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .filter-tab.active {
+    background: var(--primary-color);
+    color: white;
   }
   
   /* ====== Lịch sử giao dịch: container bảng ====== */
@@ -198,7 +231,7 @@
   
   .history-table th,
   .history-table td {
-    padding: 0.6rem 0.8rem;     /* Giảm padding */
+    padding: 0.8rem 1rem;     /* Tăng padding cho dễ đọc */
     text-align: left;
     border-bottom: 1px solid var(--border-color);
     font-size: 0.9rem;          /* Giảm font-size */
@@ -209,18 +242,65 @@
     color: var(--text-dark);
   }
   
-  /* Dữ liệu phần thân */
-  .history-table tbody tr:hover {
-    background-color: #fafafa;
+  /* Tạo khoảng cách giữa các dòng */
+  .history-table tbody tr {
+    transition: all 0.2s ease;
   }
   
-  /* Cột “Loại” và “Số tiền” nếu negative -> màu đỏ */
-  .history-table td.negative {
+  /* Hiệu ứng khi di chuột qua */
+  .history-table tbody tr:hover {
+    background-color: #fafafa;
+    transform: translateY(-2px);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  }
+  
+  /* Icon và phân loại giao dịch */
+  .type {
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+  }
+  
+  .type-icon {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .type-icon.income {
+    background: var(--income-light);
+    color: var(--positive-color);
+  }
+  
+  .type-icon.expense {
+    background: var(--expense-light);
     color: var(--negative-color);
   }
   
-  /* Nếu bạn có giao dịch positive */
-  /* .history-table td.positive { color: var(--positive-color); } */
+  /* Màu cho số dương/âm */
+  .positive {
+    color: var(--positive-color);
+    font-weight: 500;
+  }
+  
+  .negative {
+    color: var(--negative-color);
+    font-weight: 500;
+  }
+  
+  /* Cột thời gian */
+  .time {
+    color: var(--text-light);
+    font-size: 0.85rem;
+  }
+  
+  /* Màu nền xen kẽ */
+  .history-table tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+  }
   
   /* ====== Responsive ====== */
   @media (max-width: 768px) {
@@ -251,6 +331,12 @@
       width: 40px;
       height: 50px;
     }
+    
+    .history-header {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+    
     .main-content {
       margin: 1rem auto;
     }
@@ -259,8 +345,43 @@
     }
     .history-table th,
     .history-table td {
-      padding: 0.5rem 0.6rem;
+      padding: 0.7rem 0.8rem;
       font-size: 0.85rem;
+    }
+    
+    /* Ẩn tiêu đề trên mobile */
+    .history-table thead {
+      display: none;
+    }
+    
+    /* Chuyển bảng thành card trên mobile */
+    .history-table tbody tr {
+      display: block;
+      margin-bottom: 1rem;
+      border: 1px solid var(--border-color);
+      border-radius: 0.5rem;
+      padding: 0.5rem;
+    }
+    
+    .history-table tbody td {
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+      border: none;
+      padding: 0.4rem 0;
+    }
+    
+    .history-table tbody td::before {
+      content: attr(data-label);
+      font-weight: 600;
+      color: var(--text-dark);
+      margin-right: 1rem;
+      flex: 1;
+    }
+    
+    .history-table tbody td .type {
+      justify-content: space-between;
+      width: 100%;
     }
   }
   
@@ -300,5 +421,13 @@
       padding: 0.4rem 0.5rem;
       font-size: 0.8rem;
     }
+    
+    .filter-tabs {
+      width: 100%;
+    }
+    
+    .filter-tab {
+      flex: 1;
+      text-align: center;
+    }
   }
-  

@@ -31,16 +31,14 @@
   <!-- ====== Thanh header (menu) ====== -->
   <header class="header">
     <div class="header-left">
-      <a href="home.html" class="logo">VayApp</a>
-      <nav class="nav">
-        <a href="home.html">Trang chủ</a>
-        <a href="history.html" class="active">Lịch sử</a>
-        <a href="#">Hồ sơ</a>
-        <a href="#">Khách hàng</a>
-        <a href="#">Báo cáo</a>
-        <a href="#">Cài đặt</a>
-      </nav>
-    </div>
+        <a href="home.html" class="logo">VayApp</a>
+        <nav class="nav">
+          <a href="home.html">Trang chủ</a>
+          <a href="#">Khách hàng</a>
+          <a href="history.html" class="active">Lịch sử</a>
+          <a href="payment.html">Nạp tiền</a>
+        </nav>
+      </div>
     <div class="header-right">
       <!-- Bấm vào sẽ vào history (đang ở chính nó) -->
       <a href="history.html" style="text-decoration: none" class="balance-display">
@@ -57,7 +55,15 @@
 
   <!-- ====== Nội dung chính: Lịch sử giao dịch ====== -->
   <main class="main-content">
-    <h1 class="main-title">Lịch sử giao dịch</h1>
+    <div class="history-header">
+      <h1 class="main-title">Lịch sử giao dịch</h1>
+      <div class="filter-tabs">
+        <button class="filter-tab active" data-filter="all">Tất cả</button>
+        <button class="filter-tab" data-filter="income">Thu</button>
+        <button class="filter-tab" data-filter="expense">Chi</button>
+      </div>
+    </div>
+    
     <div class="history-container">
       <table class="history-table">
         <thead>
@@ -65,27 +71,66 @@
             <th>Loại</th>
             <th>Số tiền</th>
             <th>Lý do</th>
+            <th>Thời gian</th>
           </tr>
         </thead>
         <tbody>
-            <tr>
-                <td style="color: green;">Cộng</td>
-                <td style="color: green;">+10,350,000₫</td>
-                <td class="reason">Hết nợ</td>
-              </tr>
-          <tr>
-            <tr>
-                <td style="color: green;">Cộng</td>
-                <td style="color: green;">+100,000₫</td>
-                <td class="reason">Thưởng hoa hồng</td>
-              </tr>
-          <tr>
-            <td class="type negative">Trừ</td>
+          <tr class="transaction income">
+            <td class="type">
+              <div class="type-icon income">
+                <i class="fas fa-arrow-down"></i>
+              </div>
+              Thu
+            </td>
+            <td class="amount positive">+10,350,000₫</td>
+            <td class="reason">Hết nợ</td>
+            <td class="time">14:30, 07/06/2025</td>
+          </tr>
+          <tr class="transaction income">
+            <td class="type">
+              <div class="type-icon income">
+                <i class="fas fa-arrow-down"></i>
+              </div>
+              Thu
+            </td>
+            <td class="amount positive">+100,000₫</td>
+            <td class="reason">Thưởng hoa hồng</td>
+            <td class="time">11:15, 06/06/2025</td>
+          </tr>
+          <tr class="transaction expense">
+            <td class="type">
+              <div class="type-icon expense">
+                <i class="fas fa-arrow-up"></i>
+              </div>
+              Chi
+            </td>
             <td class="amount negative">-10,350,000₫</td>
             <td class="reason">Nợ Lê Minh Khang</td>
+            <td class="time">09:45, 05/06/2025</td>
           </tr>
-
-          <!-- Tương tự bạn có thể thêm nhiều dòng khác -->
+          <tr class="transaction expense">
+            <td class="type">
+              <div class="type-icon expense">
+                <i class="fas fa-arrow-up"></i>
+              </div>
+              Chi
+            </td>
+            <td class="amount negative">-500,000₫</td>
+            <td class="reason">Phí dịch vụ</td>
+            <td class="time">16:20, 04/06/2025</td>
+          </tr>
+          <!-- Thêm dòng mẫu -->
+          <tr class="transaction income">
+            <td class="type">
+              <div class="type-icon income">
+                <i class="fas fa-arrow-down"></i>
+              </div>
+              Thu
+            </td>
+            <td class="amount positive">+2,000,000₫</td>
+            <td class="reason">Hoàn trả vay</td>
+            <td class="time">13:10, 03/06/2025</td>
+          </tr>
         </tbody>
       </table>
     </div>

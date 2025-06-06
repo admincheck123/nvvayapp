@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Trang cá nhân</title>
+  <title>Hồ sơ nhân viên</title>
 
   <!-- Google Fonts: Poppins -->
   <link
@@ -29,18 +29,18 @@
   <!-- ====== Thanh header (menu) ====== -->
   <header class="header">
     <div class="header-left">
-      <a href="home.html" class="logo">VayApp</a>
-      <nav class="nav">
-        <a href="home.html">Trang chủ</a>
-        <a href="#" class="active">Hồ sơ</a>
-        <a href="#">Khách hàng</a>
-        <a href="#">Báo cáo</a>
-        <a href="#">Cài đặt</a>
-      </nav>
-    </div>
+        <a href="home.html" class="logo">VayApp</a>
+        <nav class="nav">
+          <a href="home.html">Trang chủ</a>
+          <a href="#">Khách hàng</a>
+          <a href="history.html">Lịch sử</a>
+          <a href="payment.html">Nạp tiền</a>
+          <a href="profile.html" class="active">Hồ sơ</a>
+        </nav>
+      </div>
     <div class="header-right">
-      <!-- Phần hiển thị số tiền hiện có (có thể tái sử dụng) -->
-      <a href="history.html" style="text-decoration: none" class="balance-display">
+      <!-- Phần hiển thị số tiền hiện có -->
+      <a href="history.html" class="balance-display">
         <i class="fas fa-wallet"></i>
         <span id="current-balance">0 VNĐ</span>
       </a>
@@ -54,7 +54,9 @@
 
   <!-- ====== Nội dung chính: Profile nhân viên ====== -->
   <main class="main-content">
-    <h1 class="main-title">Hồ sơ nhân viên</h1>
+    <div class="profile-header">
+      <h1 class="main-title">Hồ sơ nhân viên</h1>
+    </div>
 
     <div class="profile-container">
       <!-- Ảnh nhân viên -->
@@ -64,75 +66,152 @@
 
       <!-- Thông tin chi tiết -->
       <div class="profile-details">
-        <div class="info-item">
-          <label>Họ và tên:</label>
-          <span>Huỳnh Duy Khoa <i class="fas fa-check-circle status-icon green"></i></span>
-        </div>
-        <div class="info-item">
-          <label>Ngày tháng năm sinh:</label>
-          <span>21/10/2005 <i class="fas fa-check-circle status-icon green"></i></span>
-        </div>
-        <div class="info-item">
-          <label>Quê quán:</label>
-          <span>Chưa xác thực <i class="fas fa-check-circle status-icon red"></i></span>
-        </div>
-        <div class="info-item">
-          <label>Công việc hiện tại:</label>
-          <span>Làm việc cho app <i class="fas fa-check-circle status-icon green"></i></span>
-        </div>
-        <div class="info-item">
-            <label>Đã đủ điều kiện làm hay chưa:</label>
-            <span>Chưa đủ điều kiện để làm việc vui lòng xác nhận thêm thông tin <i class="fas fa-check-circle status-icon red"></i></span>
+        <div class="info-grid">
+          <div class="info-item">
+            <label>Họ và tên:</label>
+            <div class="info-value">
+              <span>Huỳnh Duy Khoa</span>
+              <i class="fas fa-check-circle status-icon green"></i>
+            </div>
           </div>
-        <div class="info-item">
-          <label>Đã ký HĐLĐ:</label>
-          <span>Chưa xác thực <i class="fas fa-check-circle status-icon red"></i></span>
+          
+          <div class="info-item">
+            <label>Ngày sinh:</label>
+            <div class="info-value">
+              <span>21/10/2005</span>
+              <i class="fas fa-check-circle status-icon green"></i>
+            </div>
+          </div>
+          
+          <div class="info-item">
+            <label>Quê quán:</label>
+            <div class="info-value">
+              <span>Chưa xác thực</span>
+              <i class="fas fa-check-circle status-icon red"></i>
+            </div>
+          </div>
+          
+          <div class="info-item">
+            <label>Công việc:</label>
+            <div class="info-value">
+              <span>Làm việc cho app</span>
+              <i class="fas fa-check-circle status-icon green"></i>
+            </div>
+          </div>
+          
+          <div class="info-item">
+            <label>Tình trạng làm việc:</label>
+            <div class="info-value warning">
+              <span>Chưa đủ điều kiện, vui lòng xác nhận thêm</span>
+              <i class="fas fa-check-circle status-icon red"></i>
+            </div>
+          </div>
+          
+          <div class="info-item">
+            <label>HĐLĐ:</label>
+            <div class="info-value">
+              <span>Chưa xác thực</span>
+              <i class="fas fa-check-circle status-icon red"></i>
+            </div>
+          </div>
+          
+          <div class="info-item">
+            <label>Thường trú:</label>
+            <div class="info-value">
+              <span>Chưa xác thực</span>
+              <i class="fas fa-check-circle status-icon red"></i>
+            </div>
+          </div>
+          
+          <div class="info-item">
+            <label>Chỗ ở hiện tại:</label>
+            <div class="info-value">
+              <span>Chưa xác thực</span>
+              <i class="fas fa-check-circle status-icon red"></i>
+            </div>
+          </div>
         </div>
-        <div class="info-item">
-          <label>Thường trú:</label>
-          <span>Chưa xác thực <i class="fas fa-check-circle status-icon red"></i></span>
-        </div>
-        <div class="info-item">
-          <label>Chỗ ở hiện tại:</label>
-          <span>Chưa xác thực <i class="fas fa-check-circle status-icon red"></i></span>
-        </div>
-        <div class="info-item">
-          <label>Mã định danh:</label>
-          <span>Chưa xác thực <i class="fas fa-check-circle status-icon red"></i></span>
-        </div>
-        <div class="info-item">
-          <label>Số CCCD:</label>
-          <span>Chưa xác thực <i class="fas fa-check-circle status-icon red"></i></span>
-        </div>
-        <div class="info-item">
-          <label>Gmail:</label>
-          <span>Chưa xác thực <i class="fas fa-check-circle status-icon red"></i></span>
-        </div>
-        <div class="info-item">
-          <label>Số điện thoại:</label>
-          <span>Chưa xác thực <i class="fas fa-check-circle status-icon red"></i></span>
-        </div>
-        <div class="info-item">
-          <label>SDT người thân:</label>
-          <span>Chưa xác thực <i class="fas fa-check-circle status-icon red"></i></span>
-        </div>
-        <div class="info-item">
-          <label>Họ và tên người thân:</label>
-          <span>Chưa xác thực <i class="fas fa-check-circle status-icon red"></i></span>
-        </div>
-        <div class="info-item">
-          <label>Địa chỉ người thân:</label>
-          <span>Chưa xác thực <i class="fas fa-check-circle status-icon red"></i></span>
-        </div>
-        <div class="info-item">
-          <label>Số tài khoản:</label>
-          <span>Chưa xác thực <i class="fas fa-check-circle status-icon red"></i></span>
-        </div>
-        <div class="info-item">
-          <label>Ngân hàng:</label>
-          <span>Chưa xác thực <i class="fas fa-check-circle status-icon red"></i></span>
+        
+        <div class="info-grid">
+          <div class="info-item">
+            <label>Mã định danh:</label>
+            <div class="info-value">
+              <span>Chưa xác thực</span>
+              <i class="fas fa-check-circle status-icon red"></i>
+            </div>
+          </div>
+          
+          <div class="info-item">
+            <label>Số CCCD:</label>
+            <div class="info-value">
+              <span>Chưa xác thực</span>
+              <i class="fas fa-check-circle status-icon red"></i>
+            </div>
+          </div>
+          
+          <div class="info-item">
+            <label>Email:</label>
+            <div class="info-value">
+              <span>Chưa xác thực</span>
+              <i class="fas fa-check-circle status-icon red"></i>
+            </div>
+          </div>
+          
+          <div class="info-item">
+            <label>Số điện thoại:</label>
+            <div class="info-value">
+              <span>Chưa xác thực</span>
+              <i class="fas fa-check-circle status-icon red"></i>
+            </div>
+          </div>
+          
+          <div class="info-item">
+            <label>SDT người thân:</label>
+            <div class="info-value">
+              <span>Chưa xác thực</span>
+              <i class="fas fa-check-circle status-icon red"></i>
+            </div>
+          </div>
+          
+          <div class="info-item">
+            <label>Tên người thân:</label>
+            <div class="info-value">
+              <span>Chưa xác thực</span>
+              <i class="fas fa-check-circle status-icon red"></i>
+            </div>
+          </div>
+          
+          <div class="info-item">
+            <label>Địa chỉ người thân:</label>
+            <div class="info-value">
+              <span>Chưa xác thực</span>
+              <i class="fas fa-check-circle status-icon red"></i>
+            </div>
+          </div>
+          
+          <div class="info-item">
+            <label>Số tài khoản:</label>
+            <div class="info-value">
+              <span>Chưa xác thực</span>
+              <i class="fas fa-check-circle status-icon red"></i>
+            </div>
+          </div>
+          
+          <div class="info-item">
+            <label>Ngân hàng:</label>
+            <div class="info-value">
+              <span>Chưa xác thực</span>
+              <i class="fas fa-check-circle status-icon red"></i>
+            </div>
+          </div>
         </div>
       </div>
+    </div>
+    
+    <div class="verification-section">
+      <h2>Xác thực thông tin</h2>
+      <p>Vui lòng cung cấp các thông tin cần thiết để hoàn tất hồ sơ của bạn</p>
+      <button class="btn-verify">Bắt đầu xác thực</button>
     </div>
   </main>
 

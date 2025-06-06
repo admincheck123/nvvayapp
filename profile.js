@@ -3,7 +3,6 @@
 /**
  * Format một số nguyên thành chuỗi có dấu phân cách hàng nghìn,
  * ví dụ: 10000 => "10,000"
- * (dùng lại nếu cần)
  */
 function formatNumberWithCommas(x) {
     if (isNaN(x)) return x;
@@ -11,7 +10,7 @@ function formatNumberWithCommas(x) {
   }
   
   /**
-   * Lặp lại kiểm tra một lần nữa trong profile.js để phòng trường hợp dùng DevTools disable script head.
+   * Kiểm tra đăng nhập
    */
   (function silentRequireLogin() {
     if (localStorage.getItem("loggedIn") !== "true") {
@@ -20,13 +19,10 @@ function formatNumberWithCommas(x) {
   })();
   
   /**
-   * Hàm khởi tạo khi DOM đã sẵn sàng:
-   *  - Hiển thị số tiền hiện tại
-   *  - Đánh dấu nav “Hồ sơ” thành active
-   *  - Bắt sự kiện logout
+   * Hàm khởi tạo khi DOM đã sẵn sàng
    */
   document.addEventListener("DOMContentLoaded", () => {
-    // 1) Hiển thị số tiền hiện tại (nếu muốn giống Home)
+    // 1) Hiển thị số tiền hiện tại
     const balanceSpan = document.getElementById("current-balance");
     if (balanceSpan) {
       const rawBalance = 0;
@@ -34,7 +30,7 @@ function formatNumberWithCommas(x) {
       balanceSpan.innerText = formatted;
     }
   
-    // 2) Đánh dấu nav “Hồ sơ” thành active
+    // 2) Đánh dấu nav "Hồ sơ" thành active
     const navLinks = document.querySelectorAll(".nav a");
     navLinks.forEach((link) => {
       if (link.textContent.trim() === "Hồ sơ") {
@@ -52,5 +48,20 @@ function formatNumberWithCommas(x) {
         window.location.href = "index.html";
       });
     }
-  });
   
+    // 4) Thêm hiệu ứng cho nút chỉnh sửa
+    const editBtn = document.querySelector(".btn-edit-profile");
+    if (editBtn) {
+      editBtn.addEventListener("click", () => {
+        alert("Chức năng chỉnh sửa hồ sơ đang được phát triển!");
+      });
+    }
+  
+    // 5) Thêm hiệu ứng cho nút xác thực
+    const verifyBtn = document.querySelector(".btn-verify");
+    if (verifyBtn) {
+      verifyBtn.addEventListener("click", () => {
+        alert("Bắt đầu quy trình xác thực thông tin!");
+      });
+    }
+  });

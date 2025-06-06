@@ -11,7 +11,7 @@
     rel="stylesheet"
   />
 
-  <!-- Font Awesome để dùng icon ví, avatar… -->
+  <!-- Font Awesome -->
   <link
     rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
@@ -33,13 +33,12 @@
       </nav>
     </div>
     <div class="header-right">
-      <!-- Phần hiển thị số tiền hiện có -->
-      <a href="history.html" style="text-decoration: none" class="balance-display">
+      <!-- Phần hiển thị số tiền -->
+      <a href="history.html" class="balance-display">
         <i class="fas fa-wallet"></i>
         <span id="current-balance">0 VNĐ</span>
       </a>
       
-
       <button class="btn-logout" id="btnLogout">Đăng xuất</button>
       <a href="profile.html" class="avatar-btn">
         <img src="./img/avatar.avif" alt="Avatar" />
@@ -49,99 +48,112 @@
 
   <!-- ====== Nội dung chính ====== -->
   <main class="main-content">
+    <!-- Thanh công cụ tìm kiếm và lọc -->
+    <div class="toolbar">
+      <div class="search-box">
+        <i class="fas fa-search"></i>
+        <input type="text" placeholder="Tìm kiếm khách hàng..." id="search-input">
+      </div>
+      
+      <div class="filter-options">
+        <select id="status-filter">
+          <option value="all">Tất cả trạng thái</option>
+          <option value="unpaid">Chưa trả</option>
+          <option value="paid">Đã trả</option>
+        </select>
+        
+        <select id="sort-options">
+          <option value="newest">Mới nhất</option>
+          <option value="oldest">Cũ nhất</option>
+          <option value="amount-high">Số tiền (cao-thấp)</option>
+          <option value="amount-low">Số tiền (thấp-cao)</option>
+        </select>
+      </div>
+      
+      <button class="btn-add" id="btnAddCustomer">
+        <i class="fas fa-plus"></i> Thêm khách hàng
+      </button>
+    </div>
+
     <h1 class="main-title">Danh sách người dùng</h1>
+    
+    <!-- Thống kê nhanh -->
+    <div class="quick-stats">
+      <div class="stat-card">
+        <div class="stat-icon">
+          <i class="fas fa-users"></i>
+        </div>
+        <div class="stat-info">
+          <span class="stat-value" id="total-customers">5</span>
+          <span class="stat-label">Tổng khách hàng</span>
+        </div>
+      </div>
+      
+      <div class="stat-card">
+        <div class="stat-icon">
+          <i class="fas fa-money-bill-wave"></i>
+        </div>
+        <div class="stat-info">
+          <span class="stat-value" id="total-amount">22.300.000₫</span>
+          <span class="stat-label">Tổng tiền cho vay</span>
+        </div>
+      </div>
+      
+      <div class="stat-card">
+        <div class="stat-icon">
+          <i class="fas fa-exclamation-triangle"></i>
+        </div>
+        <div class="stat-info">
+          <span class="stat-value" id="unpaid-count">5</span>
+          <span class="stat-label">Chưa thanh toán</span>
+        </div>
+      </div>
+    </div>
+
     <div class="cards-container">
       <!-- Card 1 -->
       <div class="user-card">
         <div class="avatar-wrapper">
-          <img
-            src="./img/anh1.jpg"
-            alt="Avatar người dùng"
-          />
+          <img src="./img/anh1.jpg" alt="Avatar người dùng" />
           <span class="badge-unpaid">Chưa trả</span>
         </div>
         <div class="user-info">
           <p><strong>Tên:</strong> Nguyễn Văn A</p>
           <p><strong>Số điện thoại:</strong> 0123 456 789</p>
           <p><strong>Số tiền mượn:</strong> 5.000.000₫</p>
-          <p><strong>Ngày sinh:</strong> 15/04/1990</p>
+          <p><strong>Ngày mượn:</strong> 15/04/2023</p>
+          <p><strong>Hạn trả:</strong> 15/07/2023</p>
+        </div>
+        <div class="card-actions">
+          <button class="btn-action btn-detail">
+            <i class="fas fa-eye"></i>
+          </button>
+          <button class="btn-action btn-edit">
+            <i class="fas fa-edit"></i>
+          </button>
+          <button class="btn-action btn-delete">
+            <i class="fas fa-trash"></i>
+          </button>
         </div>
       </div>
 
-      <!-- Card 2 -->
-      <div class="user-card">
-        <div class="avatar-wrapper">
-          <img
-            src="./img/anh2.jpg"
-            alt="Avatar người dùng"
-          />
-          <span class="badge-unpaid">Chưa trả</span>
-        </div>
-        <div class="user-info">
-          <p><strong>Tên:</strong> Trần Thị B</p>
-          <p><strong>Số điện thoại:</strong> 0987 654 321</p>
-          <p><strong>Số tiền mượn:</strong> 2.500.000₫</p>
-          <p><strong>Ngày sinh:</strong> 22/09/1985</p>
-        </div>
-      </div>
-
-      <!-- Card 3 -->
-      <div class="user-card">
-        <div class="avatar-wrapper">
-          <img
-            src="./img/anh3.jpg"
-            alt="Avatar người dùng"
-          />
-          <span class="badge-unpaid">Chưa trả</span>
-        </div>
-        <div class="user-info">
-          <p><strong>Tên:</strong> Lê Văn C</p>
-          <p><strong>Số điện thoại:</strong> 0912 345 678</p>
-          <p><strong>Số tiền mượn:</strong> 7.200.000₫</p>
-          <p><strong>Ngày sinh:</strong> 30/12/1992</p>
-        </div>
-      </div>
-
-      <!-- Card 4 -->
-      <div class="user-card">
-        <div class="avatar-wrapper">
-          <img
-            src="./img/anh4.webp"
-            alt="Avatar người dùng"
-          />
-          <span class="badge-unpaid">Chưa trả</span>
-        </div>
-        <div class="user-info">
-          <p><strong>Tên:</strong> Phạm Thị D</p>
-          <p><strong>Số điện thoại:</strong> 0909 876 543</p>
-          <p><strong>Số tiền mượn:</strong> 3.100.000₫</p>
-          <p><strong>Ngày sinh:</strong> 05/02/1995</p>
-        </div>
-      </div>
-
-      <!-- Card 5 -->
-      <div class="user-card">
-        <div class="avatar-wrapper">
-          <img
-            src="./img/khoa.png"
-            alt="Avatar người dùng"
-          />
-          <span class="badge-unpaid">Chưa trả</span>
-        </div>
-        <div class="user-info">
-          <p><strong>Tên:</strong> Đỗ Văn E</p>
-          <p><strong>Số điện thoại:</strong> 0933 221 100</p>
-          <p><strong>Số tiền mượn:</strong> 4.500.000₫</p>
-          <p><strong>Ngày sinh:</strong> 18/07/1988</p>
-        </div>
-      </div>
+      <!-- Các card khác tương tự... -->
+    </div>
+    
+    <!-- Phân trang -->
+    <div class="pagination">
+      <button class="btn-pagination" disabled>
+        <i class="fas fa-chevron-left"></i>
+      </button>
+      <span class="page-number">1</span>
+      <button class="btn-pagination">
+        <i class="fas fa-chevron-right"></i>
+      </button>
     </div>
   </main>
 
-  <!-- ====== Script đăng xuất & logic JS cho trang Home ====== -->
-  <!-- 1) Gọi auth.js trước, để có hàm requireLogin() và logout() -->
+  <!-- ====== Script ====== -->
   <script src="auth.js"></script>
-  <!-- 2) Gọi home.js sau, để xử lý DOMContentLoaded, animation, v.v. -->
   <script src="home.js"></script>
 </body>
 </html>

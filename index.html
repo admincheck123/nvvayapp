@@ -1,39 +1,83 @@
-<!-- index.html -->
 <!DOCTYPE html>
 <html lang="vi">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Đăng nhập | VayApp</title>
+  
   <!-- Google Fonts: Poppins -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-
-  <!-- Font Awesome: sử dụng CDN chính thức (chỉ cần href, không thêm integrity) -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-
-  <title>Đăng nhập</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="login-container">
-    <div class="login-logo">
-      <!-- Icon user trung tâm -->
-      <i class="fas fa-user-circle"></i>
+  <div class="login-wrapper">
+    <!-- Left Brand Panel -->
+    <div class="brand-panel">
+      <div class="brand-content">
+        <div class="brand-logo">
+          <i class="fas fa-hand-holding-usd"></i>
+          <span>VayApp</span>
+        </div>
+        <h1>Nền tảng tài chính thông minh</h1>
+        <p>Giải pháp vay vốn nhanh chóng, minh bạch và tiện lợi</p>
+      </div>
+      <div class="brand-footer">
+        <p>© 2025 VayApp. Bảo lưu mọi quyền.</p>
+      </div>
     </div>
-    <h2>Đăng nhập</h2>
-
-    <div class="input-group">
-      <i class="fas fa-user"></i>
-      <input type="text" id="username" placeholder="Tên đăng nhập">
+    
+    <!-- Right Login Form -->
+    <div class="login-container">
+      <div class="login-header">
+        <h2>Đăng nhập tài khoản</h2>
+        <p>Vui lòng nhập thông tin đăng nhập</p>
+      </div>
+      
+      <form id="loginForm">
+        <div class="input-group">
+          <i class="fas fa-user input-icon"></i>
+          <input type="text" id="username" placeholder="Tên đăng nhập" required>
+        </div>
+        
+        <div class="input-group">
+          <i class="fas fa-lock input-icon"></i>
+          <input type="password" id="password" placeholder="Mật khẩu" required>
+          <i class="fas fa-eye toggle-password" id="togglePassword"></i>
+        </div>
+        
+        <div class="remember-forgot">
+          <label>
+            <input type="checkbox" id="remember">
+            <span>Ghi nhớ đăng nhập</span>
+          </label>
+          <a href="#">Quên mật khẩu?</a>
+        </div>
+        
+        <button type="submit" class="login-btn">
+          <span>Đăng nhập</span>
+          <i class="fas fa-arrow-right"></i>
+        </button>
+        
+        <p class="error" id="error"></p>
+      </form>
+      
+      <div class="social-login">
+        <p>Hoặc đăng nhập bằng</p>
+        <div class="social-icons">
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fab fa-google"></i></a>
+          <a href="#"><i class="fab fa-apple"></i></a>
+        </div>
+      </div>
+      
+      <div class="register-link">
+        <p>Chưa có tài khoản? <a href="#">Đăng ký ngay</a></p>
+      </div>
     </div>
-
-    <div class="input-group">
-      <i class="fas fa-lock"></i>
-      <input type="password" id="password" placeholder="Mật khẩu">
-    </div>
-
-    <button onclick="login()">Đăng nhập</button>
-    <p class="error" id="error"></p>
   </div>
 
   <script src="auth.js"></script>

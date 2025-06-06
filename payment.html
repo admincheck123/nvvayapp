@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Nạp tiền - VayApp</title>
+
+  <!-- Google Fonts: Poppins -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap"
+    rel="stylesheet"
+  />
+
+  <!-- Font Awesome để dùng icon -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+  />
+
+  <!-- CSS chính cho trang payment -->
+  <link rel="stylesheet" href="payment.css" />
+  <script>
+    if (localStorage.getItem('loggedIn') !== 'true') {
+      window.location.href = 'index.html';
+    }
+  </script>
+</head>
+<body>
+  <!-- ====== Header (tái sử dụng cấu trúc giống trang Home) ====== -->
+  <header class="header">
+    <div class="header-left">
+        <a href="home.html" class="logo">VayApp</a>
+        <nav class="nav">
+          <a href="home.html">Trang chủ</a>
+          <a href="#">Khách hàng</a>
+          <a href="history.html">Lịch sử</a>
+          <a href="payment.html" class="active">Nạp tiền</a>
+        </nav>
+      </div>
+    <div class="header-right">
+      <a href="history.html" style="text-decoration: none;" class="balance-display">
+        <i class="fas fa-wallet"></i>
+        <span id="current-balance">0 VNĐ</span>
+      </a>
+      <button class="btn-logout" id="btnLogout">Đăng xuất</button>
+      <a href="profile.html" class="avatar-btn">
+        <img src="./img/avatar.avif" alt="Avatar" />
+      </a>
+    </div>
+  </header>
+
+  <!-- ====== Nội dung chính: Card chứa QR và thông tin ====== -->
+  <main class="main-content">
+    <section class="payment-section">
+      <div class="payment-card">
+        <div class="payment-header">
+          <i class="fas fa-qrcode"></i>
+          <h2>NẠP TIỀN VÀO TÀI KHOẢN</h2>
+        </div>
+        
+        <p class="instruction">Quý nhân viên vui lòng quét mã QR dưới đây để chuyển khoản</p>
+        
+        <div class="qr-wrapper">
+          <img src="https://img.vietqr.io/image/TIMO-0775551106-qr_only.png" alt="QR Code chuyển khoản" />
+          <div class="qr-overlay">
+            <i class="fas fa-expand-alt"></i>
+          </div>
+        </div>
+        
+        <div class="account-info">
+          <div class="info-item">
+            <i class="fas fa-user"></i>
+            <div>
+              <span class="info-label">Họ và tên:</span>
+              <span class="info-value">Lê Minh Khang</span>
+            </div>
+          </div>
+          
+          <div class="info-item">
+            <i class="fas fa-credit-card"></i>
+            <div>
+              <span class="info-label">Số tài khoản:</span>
+              <span class="info-value">0775551106</span>
+            </div>
+            <button class="copy-btn" data-text="0775551106">
+              <i class="far fa-copy"></i>
+            </button>
+          </div>
+          
+          <div class="info-item">
+            <i class="fas fa-university"></i>
+            <div>
+              <span class="info-label">Ngân hàng:</span>
+              <span class="info-value">Timo Bank hoặc BV Bank</span>
+            </div>
+          </div>
+        </div>
+        
+        <div class="payment-note">
+          <i class="fas fa-info-circle"></i>
+          <p>Vui lòng nhập đúng nội dung chuyển tiền là số điện thoại đăng ký tài khoản</p>
+        </div>
+      </div>
+      
+      <div class="payment-steps">
+        <h3>Hướng dẫn nạp tiền</h3>
+        <ol>
+          <li>Mở ứng dụng ngân hàng trên điện thoại</li>
+          <li>Chọn tính năng <strong>Quét mã QR</strong></li>
+          <li>Quét mã QR ở trên</li>
+          <li>Kiểm tra thông tin và xác nhận chuyển tiền</li>
+          <li>Tiền sẽ được cập nhật sau 3-5 phút</li>
+        </ol>
+      </div>
+    </section>
+  </main>
+  
+  <script src="payment.js"></script>
+  <!-- ====== Script đăng xuất & logic nếu cần ====== -->
+  <script>
+    // Tái sử dụng logout từ auth.js (nếu đã có)
+    (function() {
+      const btnLogout = document.getElementById('btnLogout');
+      if (btnLogout) {
+        btnLogout.addEventListener('click', () => {
+          localStorage.removeItem('loggedIn');
+          window.location.href = 'index.html';
+        });
+      }
+    })();
+  </script>
+</body>
+</html>

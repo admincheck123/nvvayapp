@@ -11,7 +11,7 @@
     rel="stylesheet"
   />
 
-  <!-- Font Awesome để dùng icon ví, avatar… -->
+  <!-- Font Awesome -->
   <link
     rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
@@ -24,22 +24,22 @@
   <!-- ====== Thanh header (menu) ====== -->
   <header class="header">
     <div class="header-left">
-      <a href="#" class="logo">VayApp</a>
-      <nav class="nav">
-        <a href="#" class="active">Trang chủ</a>
-        <a href="#">Khách hàng</a>
-        <a href="#">Báo cáo</a>
-        <a href="#">Cài đặt</a>
-      </nav>
-    </div>
+        <a href="home.html" class="logo">VayApp</a>
+        <nav class="nav">
+          <a href="home.html">Trang chủ</a>
+          <a href="#">Khách hàng</a>
+          <a href="history.html">Lịch sử</a>
+          <a href="payment.html">Nạp tiền</a>
+          <a href="profile.html" class="active">Hồ sơ</a>
+        </nav>
+      </div>
     <div class="header-right">
-      <!-- Phần hiển thị số tiền hiện có -->
-      <a href="history.html" style="text-decoration: none" class="balance-display">
+      <!-- Phần hiển thị số tiền -->
+      <a href="history.html" style="text-decoration: none;" class="balance-display">
         <i class="fas fa-wallet"></i>
         <span id="current-balance">0 VNĐ</span>
       </a>
       
-
       <button class="btn-logout" id="btnLogout">Đăng xuất</button>
       <a href="profile.html" class="avatar-btn">
         <img src="./img/avatar.avif" alt="Avatar" />
@@ -48,16 +48,85 @@
   </header>
 
   <!-- ====== Nội dung chính ====== -->
-  <section class="loading-section">
-    <div class="loading-container">
-      <h1>Vui lòng chờ...</h1>
-      <i class="fas fa-cog loading-icon"></i>
+  <main class="main-content">
+    <!-- Thanh công cụ tìm kiếm và lọc -->
+    <div class="toolbar">
+      <div class="search-box">
+        <i class="fas fa-search"></i>
+        <input type="text" placeholder="Tìm kiếm khách hàng..." id="search-input">
+      </div>
+      
+      <div class="filter-options">
+        <select id="status-filter">
+          <option value="all">Tất cả trạng thái</option>
+          <option value="unpaid">Chưa trả</option>
+          <option value="paid">Đã trả</option>
+        </select>
+        
+        <select id="sort-options">
+          <option value="newest">Mới nhất</option>
+          <option value="oldest">Cũ nhất</option>
+          <option value="amount-high">Số tiền (cao-thấp)</option>
+          <option value="amount-low">Số tiền (thấp-cao)</option>
+        </select>
+      </div>
+      
+      <button class="btn-add" id="btnAddCustomer">
+        <i class="fas fa-plus"></i> Thêm khách hàng
+      </button>
     </div>
-  </section>
-  <!-- ====== Script đăng xuất & logic JS cho trang Home ====== -->
-  <!-- 1) Gọi auth.js trước, để có hàm requireLogin() và logout() -->
+
+    <h1 class="main-title">Danh sách người dùng</h1>
+    
+    <!-- Thống kê nhanh -->
+    <div class="quick-stats">
+      <div class="stat-card">
+        <div class="stat-icon">
+          <i class="fas fa-users"></i>
+        </div>
+        <div class="stat-info">
+          <span class="stat-value" id="total-customers">5</span>
+          <span class="stat-label">Tổng khách hàng</span>
+        </div>
+      </div>
+      
+      <div class="stat-card">
+        <div class="stat-icon">
+          <i class="fas fa-money-bill-wave"></i>
+        </div>
+        <div class="stat-info">
+          <span class="stat-value" id="total-amount">22.300.000₫</span>
+          <span class="stat-label">Tổng tiền cho vay</span>
+        </div>
+      </div>
+      
+      <div class="stat-card">
+        <div class="stat-icon">
+          <i class="fas fa-exclamation-triangle"></i>
+        </div>
+        <div class="stat-info">
+          <span class="stat-value" id="unpaid-count">5</span>
+          <span class="stat-label">Chưa thanh toán</span>
+        </div>
+      </div>
+    </div>
+
+
+    
+    <!-- Phân trang -->
+    <div class="pagination">
+      <button class="btn-pagination" disabled>
+        <i class="fas fa-chevron-left"></i>
+      </button>
+      <span class="page-number">1</span>
+      <button class="btn-pagination">
+        <i class="fas fa-chevron-right"></i>
+      </button>
+    </div>
+  </main>
+
+  <!-- ====== Script ====== -->
   <script src="auth.js"></script>
-  <!-- 2) Gọi home.js sau, để xử lý DOMContentLoaded, animation, v.v. -->
   <script src="home.js"></script>
 </body>
 </html>

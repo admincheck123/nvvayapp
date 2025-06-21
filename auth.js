@@ -33,7 +33,7 @@ document.getElementById('togglePassword').addEventListener('click', function() {
     }
     
     // Check credentials
-    if (user === 'nvkhoa054124' && pass === '0542051124@!') {
+    if (user === 'nvkhangcd09' && pass === '2009@cdkhang!') {
       // Show loading state
       const loginBtn = document.querySelector('.login-btn');
       const originalContent = loginBtn.innerHTML;

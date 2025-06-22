@@ -30,7 +30,7 @@ function formatNumberWithCommas(x) {
     const balanceSpan = document.getElementById("current-balance");
     if (balanceSpan) {
       // Giả lập số dư 10,000 VNĐ
-      const rawBalance = 0;
+      const rawBalance = 1000000;
       const formatted = formatNumberWithCommas(rawBalance) + " VNĐ";
       balanceSpan.innerText = formatted;
     }

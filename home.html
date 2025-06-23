@@ -24,20 +24,19 @@
   <!-- ====== Thanh header (menu) ====== -->
   <header class="header">
     <div class="header-left">
-        <a href="home.html" class="logo">VayApp</a>
-        <nav class="nav">
-          <a href="home.html">Trang chủ</a>
-          <a href="#">Khách hàng</a>
-          <a href="history.html">Lịch sử</a>
-          <a href="payment.html">Nạp tiền</a>
-          <a href="profile.html" class="active">Hồ sơ</a>
-        </nav>
-      </div>
+      <a href="#" class="logo">VayApp</a>
+      <nav class="nav">
+        <a href="#" class="active">Trang chủ</a>
+        <a href="#">Khách hàng</a>
+        <a href="#">Báo cáo</a>
+        <a href="#">Cài đặt</a>
+      </nav>
+    </div>
     <div class="header-right">
       <!-- Phần hiển thị số tiền -->
-      <a href="history.html" style="text-decoration: none;" class="balance-display">
+      <a href="history.html" class="balance-display">
         <i class="fas fa-wallet"></i>
-        <span id="current-balance">1,000,000 VNĐ</span>
+        <span id="current-balance">0 VNĐ</span>
       </a>
       
       <button class="btn-logout" id="btnLogout">Đăng xuất</button>
@@ -71,9 +70,9 @@
         </select>
       </div>
       
-      <!-- <button class="btn-add" id="btnAddCustomer">
+      <button class="btn-add" id="btnAddCustomer">
         <i class="fas fa-plus"></i> Thêm khách hàng
-      </button> -->
+      </button>
     </div>
 
     <h1 class="main-title">Danh sách người dùng</h1>
@@ -111,7 +110,33 @@
       </div>
     </div>
 
+    <div class="cards-container">
+      <!-- Card 1 -->
+      <div class="user-card">
+        <div class="avatar-wrapper">
+          <img src="./img/vv2.jpg" alt="Avatar người dùng" />
+          <span class="badge-unpaid">Chưa trả</span>
+        </div>
+        <div class="user-info">
+          <p><strong>Tên:</strong> Bùi Đức Tài</p>
+          <p><strong>Số điện thoại:</strong> ####</p>
+          <p><strong>Số tiền mượn:</strong> 1.000.000₫</p>
+          <p><strong>Ngày mượn:</strong> 23/06/2025</p>
+          <p><strong>Hạn trả:</strong> 15/07/2025</p>
+          <p><strong>Tiền lời:</strong> 350.000</p>
+        </div>
+        <div class="card-actions">
+          <button class="btn-action btn-detail">
+            <i class="fas fa-eye"></i>
+          </button>
+          <button class="btn-action btn-edit">
+            <i class="fas fa-edit"></i>
+          </button>
+        </div>
+      </div>
 
+      <!-- Các card khác tương tự... -->
+    </div>
     
     <!-- Phân trang -->
     <div class="pagination">

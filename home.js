@@ -6,7 +6,7 @@ function formatNumberWithCommas(x) {
   }
   
   function getCurrentBalance() {
-    return 1000001;
+    return 1350000;
   }
   
   function animateCards() {

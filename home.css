@@ -408,6 +408,15 @@
   }
   
   .badge-paid {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    color: var(--badge-text);
+    font-size: 0.85rem;
+    font-weight: 600;
+    padding: 0.35rem 0.8rem;
+    border-radius: 0.5rem;
+    text-transform: uppercase;
     background-color: var(--badge-paid);
     box-shadow: 0 2px 5px rgba(46, 204, 113, 0.3);
   }
